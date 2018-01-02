@@ -6,17 +6,17 @@
 	<% end %>
 </ul>
 <% end %>
-<%= form_for @article do |f| %>
-	<p>
-		<%= f.label :title %><br />
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :description %><br />
-		<%= f.text_area :description %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
+<%= form_for @article, html: { class: "" } do |f| %>
+	<div class="form-group">
+		<%= f.label :title, class: "control-label" %>
+		<%= f.text_field :title, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :description, class: "control-label" %>
+		<%= f.text_area :description, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.submit "Save", class: 'btn btn-lg btn-primary' %>
+	</div>
 <% end %>
-<%= link_to "Back to Articles List", articles_path %>
+<%= link_to "Back to Articles List", articles_path, class: "btn btn-sm btn-warning" %>
