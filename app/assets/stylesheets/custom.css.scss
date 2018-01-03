@@ -5,3 +5,15 @@ $navbar-default-link-hover-color:          	#eee !default;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+html, body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.main-btn {
+    margin-top: 1.8em;
+}
+
+.article-title h3 {
+    margin: 10px 0;
+}

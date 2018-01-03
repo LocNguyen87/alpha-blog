@@ -1,5 +1,12 @@
-<h1>Showing selected article</h1>
-<p>Title: <%= @article.title %></p>
-<p>Description: <%= @article.description %></p>
-<%= link_to "Edit this article", edit_article_path(@article) %> | 
-<%= link_to "Back to Articles List", articles_path %>
+<div class="well well-lg">
+	<div class="article-title">
+		<h3><%= @article.title %></h3>
+	</div>
+	<div class="article-body">
+		<p>
+			<%= @article.description %>
+		</p>
+	</div>
+</div>
+<%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-sm btn-info" %>
+<%= link_to "Back to Articles List", articles_path, class: "btn btn-sm btn-warning" %>

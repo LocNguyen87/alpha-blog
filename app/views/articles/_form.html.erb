@@ -1,22 +1,17 @@
-<% if @article.errors.any? %>
-<h2>The following errors prevented the article from getting edited</h2>
-<ul>
-	<% @article.errors.full_messages.each do |msg| %>	
-		<li><%= msg %></li>
+<%= render 'shared/errors', obj: @article %>
+<div class="well well-lg">
+	<%= form_for @article, html: { class: "" } do |f| %>
+		<div class="form-group">
+			<%= f.label :title, class: "control-label" %>
+			<%= f.text_field :title, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :description, class: "control-label" %>
+			<%= f.text_area :description, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.submit "Save", class: 'btn btn-lg btn-primary' %>
+		</div>
 	<% end %>
-</ul>
-<% end %>
-<%= form_for @article, html: { class: "" } do |f| %>
-	<div class="form-group">
-		<%= f.label :title, class: "control-label" %>
-		<%= f.text_field :title, class: "form-control" %>
-	</div>
-	<div class="form-group">
-		<%= f.label :description, class: "control-label" %>
-		<%= f.text_area :description, class: "form-control" %>
-	</div>
-	<div class="form-group">
-		<%= f.submit "Save", class: 'btn btn-lg btn-primary' %>
-	</div>
-<% end %>
+</div>
 <%= link_to "Back to Articles List", articles_path, class: "btn btn-sm btn-warning" %>
