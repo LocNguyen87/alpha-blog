@@ -1,0 +1,21 @@
+<h1 class="text-center">Signup for Alpha Blog</h1>
+<%= render 'shared/errors', obj: @user %>
+<div class="well well-lg">
+	<%= form_for @user, html: { class: "", role: "form" } do |f| %>
+		<div class="form-group">
+			<%= f.label :username, class: "control-label" %>
+			<%= f.text_field :username, class: "form-control", placeholder: "Enter your username" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :email, class: "control-label" %>
+			<%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :password, class: "control-label" %>
+			<%= f.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+		</div>
+		<div class="form-group">
+			<%= f.submit "Sign Up", class: 'btn btn-lg btn-primary' %>
+		</div>
+	<% end %>
+</div>
