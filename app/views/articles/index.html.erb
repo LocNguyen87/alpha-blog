@@ -1,22 +1,3 @@
 <h1 class="pull-left">Listing all articles</h1>
 <%= link_to "Create new article", new_article_path, class: "btn btn-primary pull-right main-btn"  %>
-<div class="clearfix"></div>
-<% @articles.each do |article| %>
-	<div class="well well-lg">
-		<div class="article-title">
-			<h3><%= link_to article.title, article_path(article), class: "article-link" %></h3>
-		</div>
-		<div class="article-body">
-			<p>
-				<%= truncate(article.description, length: 100) %>
-			</p>
-			<div class="article-meta">
-				<small>Created by <strong><%= article.user.username if article.user  %></strong> on <%= time_ago_in_words(article.created_at) %> ago. Last updated on <%= time_ago_in_words(article.updated_at) %> ago</small>
-			</div>
-		</div>
-		<div class="article-action">
-			<%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-info" %>
-			<%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-sm btn-danger" %>
-		</div>
-	</div>
-<% end %>
+<%= render 'articles', obj: @articles %>
