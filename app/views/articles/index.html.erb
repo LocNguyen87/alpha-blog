@@ -1,3 +1,10 @@
 <h1 class="pull-left">Listing all articles</h1>
 <%= link_to "Create new article", new_article_path, class: "btn btn-primary pull-right main-btn"  %>
+<div class="clearfix"></div>
+<div class="text-center">
+	<%= will_paginate %>
+</div>
 <%= render 'articles', obj: @articles %>
+<div class="text-center">
+	<%= will_paginate %>
+</div>
