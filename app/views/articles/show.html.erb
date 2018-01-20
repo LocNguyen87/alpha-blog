@@ -24,5 +24,9 @@
 	</div>
   </div>
 </div>
+
+
+<% if logged_in? && (current_user == @article.user || current_user.admin? ) %>
 <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-sm btn-info" %>
 <%= link_to "Back to Articles List", articles_path, class: "btn btn-sm btn-warning" %>
+<% end %>

@@ -12,9 +12,11 @@
 				<small>Created by <strong><%= article.user.username if article.user  %></strong> on <%= time_ago_in_words(article.created_at) %> ago. Last updated on <%= time_ago_in_words(article.updated_at) %> ago</small>
 			</div>
 		</div>
+		<% if logged_in? && (current_user == article.user || current_user.admin? ) %>
 		<div class="article-action">
 			<%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-info" %>
 			<%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-sm btn-danger" %>
 		</div>
+		<% end %>
 	</div>
 <% end %>

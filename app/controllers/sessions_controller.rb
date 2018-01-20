@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	before_action :require_guess
+	before_action :require_guess, only: [:new, :create]
 
 	def new
 
