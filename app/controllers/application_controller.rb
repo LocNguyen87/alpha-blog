@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :only_for_guess
 
   def current_user
  	@current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
   		redirect_to root_path
   	end
   end
+
+  def require_guess
+		if current_user
+			flash[:warning] = "You have logged in to your profile"
+			redirect_to user_path(current_user)
+		end
+	end
 end
