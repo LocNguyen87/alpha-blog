@@ -1,0 +1,16 @@
+<h1 class="text-center">Login to Alpha Blog</h1>
+<div class="well well-lg">
+	<%= form_for(:session, :html => { class: "", role: "form" }, url: login_path) do |f| %>
+		<div class="form-group">
+			<%= f.label :email, class: "control-label" %>
+			<%= f.text_field :email, class: "form-control", placeholder: "Enter your email" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :password, class: "control-label" %>
+			<%= f.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+		</div>
+		<div class="form-group">
+			<%= f.submit "Log In", class: 'btn btn-lg btn-primary' %>
+		</div>
+	<% end %>
+</div>
